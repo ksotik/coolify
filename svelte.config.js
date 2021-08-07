@@ -3,6 +3,7 @@ dotEnvExtended.load();
 import preprocess from 'svelte-preprocess';
 import path from 'path';
 import adapter from '@sveltejs/adapter-node';
+
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	preprocess: [
@@ -22,6 +23,9 @@ export default {
 		},
 		vite: {
 			server: {
+				proxy: {
+					'/api':process.env.NODE_ENV === 'production' ? `https://${process.env.DOMAIN}` : 'http://127.0.0.1:3001'
+				},
 				hmr: {
 					port: 23456
 				}
@@ -30,7 +34,6 @@ export default {
 				alias: {
 					$components: path.resolve('./src/components/'),
 					$store: path.resolve('./src/store/index.ts'),
-					$api: path.resolve('./src/routes/api/'),
 					$models: path.resolve('./src/models/')
 				}
 			}

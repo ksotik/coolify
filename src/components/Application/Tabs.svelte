@@ -1,6 +1,6 @@
 <script>
 	import { toast } from '@zerodevx/svelte-toast';
-	import templates from '$lib/api/applications/packs/templates';
+	import templates from '$lib/templates';
 	import { application, dashboard, initConf, prApplication } from '$store';
 	import General from '$components/Application/ActiveTab/General.svelte';
 	import Secrets from '$components/Application/ActiveTab/Secrets.svelte';

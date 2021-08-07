@@ -17,7 +17,7 @@
 		clearInterval(loadPRDeployments);
 	});
 	async function getPRDeployments() {
-		const { configuration } = await request(`/api/v1/application/config`, $session, {
+		const { configuration } = await request(`/api/v1/applications/config`, $session, {
 			body: {
 				nickname: $application.general.nickname
 			}
@@ -27,14 +27,14 @@
 	async function removePR(prConfiguration) {
 		const result = window.confirm("DANGER ZONE! It's NOT reversible! Are you sure?");
 		if (result) {
-			await request(`/api/v1/application/remove`, $session, {
+			await request(`/api/v1/applications/remove`, $session, {
 				body: {
 					nickname: prConfiguration.general.nickname
 				}
 			});
 
 			browser && toast.push('PR deployment removed.');
-			const { configuration } = await request(`/api/v1/application/config`, $session, {
+			const { configuration } = await request(`/api/v1/applications/config`, $session, {
 				body: {
 					nickname: prConfiguration.general.nickname
 				}

@@ -12,7 +12,7 @@
 			"DANGER ZONE! It will delete all deployments, including PR's. It's NOT reversible! Are you sure?"
 		);
 		if (result) {
-			await request(`/api/v1/application/remove`, $session, {
+			await request(`/api/v1/applications/remove`, $session, {
 				body: {
 					nickname: $application.general.nickname
 				}
@@ -31,10 +31,10 @@
 	async function deploy() {
 		try {
 			browser && toast.push('Checking configuration.');
-			await request(`/api/v1/application/check`, $session, {
+			await request(`/api/v1/applications/check`, $session, {
 				body: $application
 			});
-			const { nickname, name, deployId } = await request(`/api/v1/application/deploy`, $session, {
+			const { nickname, name, deployId } = await request(`/api/v1/applications/deploy`, $session, {
 				body: $application
 			});
 			$application.general.nickname = nickname;

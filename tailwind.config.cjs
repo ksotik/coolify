@@ -1,10 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
-const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles');
 
-const svelteClassColonExtractor = (content) => {
-	return content.match(/(?<=class:)([a-zA-Z0-9_-]+)/gm) || [];
-};
 module.exports = {
 	mode: 'jit',
 	purge: ['./**/*.html', './src/**/*.{js,jsx,ts,tsx,svelte}'],
@@ -25,6 +21,7 @@ module.exports = {
 			},
 			colors: {
 				...colors,
+				coollabs: '#702FF3',
 				coolblack: '#161616',
 				'coolgray-100': '#181818',
 				'coolgray-200': '#202020',

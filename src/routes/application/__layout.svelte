@@ -28,7 +28,7 @@
 	$application.general.nickname = $page.params.nickname;
 	async function setConfiguration() {
 		try {
-			const { configuration } = await request(`/api/v1/application/config`, $session, {
+			const { configuration } = await request(`/api/v1/applications/config`, $session, {
 				body: {
 					nickname: $application.general.nickname
 				}

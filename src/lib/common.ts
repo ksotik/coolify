@@ -7,3 +7,4 @@ export function dashify(str: string, options?: any) {
 		.replace(/-{2,}/g, (m) => (options && options.condense ? '-' : m))
 		.toLowerCase();
 }
+

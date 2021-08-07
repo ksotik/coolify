@@ -35,14 +35,14 @@
 	async function loadDeploymentLogs() {
 		deployments = (
 			await request(
-				`/api/v1/application/deploy/logs?repoId=${$application.repository.id}&branch=${$application.repository.branch}&page=${page}`,
+				`/api/v1/applications/deploy/logs?repoId=${$application.repository.id}&branch=${$application.repository.branch}&page=${page}`,
 				$session
 			)
 		).logs;
 	}
 	async function loadApplicationLogs() {
 		logs = (
-			await request(`/api/v1/application/logs?name=${$application.build.container.name}`, $session)
+			await request(`/api/v1/applications/logs?name=${$application.build.container.name}`, $session)
 		).logs;
 	}
 </script>

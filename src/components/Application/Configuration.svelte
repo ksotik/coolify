@@ -144,7 +144,7 @@ import { dashify } from '$lib/common';
 
 					if ($application.repository.name) {
 						try {
-							const { configuration } = await request(`/api/v1/application/config`, $session, {
+							const { configuration } = await request(`/api/v1/applications/config`, $session, {
 								body: {
 									name: $application.repository.name,
 									organization: $application.repository.organization,

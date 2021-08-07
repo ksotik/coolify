@@ -129,7 +129,7 @@
 				$application.general.isPreviewDeploymentEnabled =
 					!$application.general.isPreviewDeploymentEnabled;
 				if ($page.path !== '/application/new') {
-					const config = await request(`/api/v1/application/config/previewDeployment`, $session, {
+					const config = await request(`/api/v1/applications/config/previewDeployment`, $session, {
 						body: {
 							name: $application.repository.name,
 							organization: $application.repository.organization,
@@ -146,7 +146,7 @@
 				!$application.general.isPreviewDeploymentEnabled;
 			$application.general.pullRequest = 0;
 			if ($page.path !== '/application/new') {
-				const config = await request(`/api/v1/application/config/previewDeployment`, $session, {
+				const config = await request(`/api/v1/applications/config/previewDeployment`, $session, {
 					body: {
 						name: $application.repository.name,
 						organization: $application.repository.organization,

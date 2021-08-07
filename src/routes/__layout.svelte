@@ -39,6 +39,7 @@
 	import packageJson from '../../package.json';
 	import { dashboard, settings } from '$store';
 	import { browser } from '$app/env';
+	import cookies from 'js-cookie'
 	$settings.clientId = import.meta.env.VITE_GITHUB_APP_CLIENTID !== 'null' ? import.meta.env.VITE_GITHUB_APP_CLIENTID : null
 	$dashboard = initDashboard;
 	const branch =
@@ -93,7 +94,9 @@
 		}
 	}
 	async function logout() {
-		await request('/api/v1/logout', $session, { body: {}, method: 'DELETE' });
+		browser && cookies.remove('coolToken')
+		browser && cookies.remove('ghToken')
+		// await request('/api/v1/logout', $session, { body: {}, method: 'DELETE' });
 		location.reload();
 	}
 	function reloadInAMin() {

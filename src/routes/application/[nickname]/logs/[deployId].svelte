@@ -20,7 +20,7 @@
 	async function loadLogs() {
 		try {
 			const { events, progress } = await request(
-				`/api/v1/application/deploy/logs/${$page.params.deployId}`,
+				`/api/v1/applications/deploy/logs/${$page.params.deployId}`,
 				$session
 			);
 			logs = [...events];

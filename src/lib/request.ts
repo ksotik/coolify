@@ -17,6 +17,7 @@ export async function request(
 		customHeaders?: Record<string, unknown>;
 	} = {}
 ) {
+
 	let fetch;
 	if (browser) {
 		fetch = window.fetch;
@@ -32,6 +33,8 @@ export async function request(
 		headers = Object.assign(headers, {
 			Authorization: `token ${session.ghToken}`
 		});
+	} else {
+		url = process.env.NODE_ENV === 'production' ? url = `https://${process.env.DOMAIN}${url}` : url = `http://localhost:3000${url}`
 	}
 	const config: any = {
 		method: method || (body ? 'POST' : 'GET'),
