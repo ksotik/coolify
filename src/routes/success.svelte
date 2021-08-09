@@ -4,13 +4,11 @@
 	if (browser) {
 		cookies.set('coolToken',new URL(window.document.URL).searchParams.get('coolToken'), {
 			path: '/',
-			domain: 'localhost',
-			secure: false
+			secure: true
 		})
 		cookies.set('ghToken',new URL(window.document.URL).searchParams.get('ghToken'), {
 			path: '/',
-			domain: 'localhost',
-			secure: false
+			secure: true
 		})
 		setTimeout(() => {
 			window.close();
