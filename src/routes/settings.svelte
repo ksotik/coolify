@@ -1,10 +1,11 @@
 <script context="module">
+	import { request } from '$lib/request';
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ fetch }) {
+	export async function load(session) {
 		try {
-			const { allowRegistration, sendErrors } = await (await fetch(`/api/v1/settings`)).json();
+			const { allowRegistration, sendErrors } = await request(`/api/v1/settings`, session);
 			return {
 				props: {
 					allowRegistration,
@@ -20,7 +21,6 @@
 			};
 		}
 	}
-
 </script>
 
 <script>
@@ -29,7 +29,6 @@
 
 	import { browser } from '$app/env';
 	import { session } from '$app/stores';
-	import { request } from '$lib/request';
 	import { toast } from '@zerodevx/svelte-toast';
 	import { fade } from 'svelte/transition';
 	let settings = {
@@ -49,7 +48,6 @@
 			console.log(error);
 		}
 	}
-
 </script>
 
 <div class="min-h-full text-white" in:fade={{ duration: 100 }}>

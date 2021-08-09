@@ -19,7 +19,7 @@
 	import Tabs from '$components/Application/Tabs.svelte';
 	import Repositories from '$components/Application/Repositories.svelte';
 	import Login from '$components/Application/Login.svelte';
-import { dashify } from '$lib/common';
+	import { dashify } from '$lib/common';
 	let loading = {
 		github: false,
 		branches: false
