@@ -34,7 +34,7 @@ export async function request(
 			Authorization: `token ${session.ghToken}`
 		});
 	} else {
-		url = process.env.NODE_ENV === 'production' ? url = `https://${process.env.DOMAIN}${url}` : url = `http://localhost:3000${url}`
+		url = process.env.NODE_ENV === 'production' ? url = `https://${import.meta.env.VITE_DOMAIN_API}${url}` : url = `http://localhost:3000${url}`
 	}
 	const config: any = {
 		method: method || (body ? 'POST' : 'GET'),
